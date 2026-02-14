@@ -1,2 +1,2 @@
-# Rendszerfejleszt-s
+# Rendszerfejlesztes
 Rendszerfejlesztés csapat
