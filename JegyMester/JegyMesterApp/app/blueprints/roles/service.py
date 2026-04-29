@@ -33,10 +33,6 @@ class RoleService:
             role = db.session.get(Role, role_id)
             if not role:
                 return False, "Szerepkor nem talalhato"
-            
-            if role.users:
-                return False, f"Szerepkor nem torolheto, mert {len(role.users)} felhasznalo rendelkezik vele"
-            
             db.session.delete(role)
             db.session.commit()
             return True, "Szerepkor torolve"

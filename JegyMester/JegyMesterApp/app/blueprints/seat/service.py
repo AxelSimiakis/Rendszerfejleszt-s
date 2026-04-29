@@ -33,6 +33,8 @@ class SeatService:
             seat = db.session.get(Seat, seat_id)
             if not seat:
                 return False, "Szek nem talalhato"
+            if seat.tickets:
+                return False, "Szek nem torolheto, mert van hozza rendelve jegy"
             db.session.delete(seat)
             db.session.commit()
             return True, "Szek sikeresen torolve"

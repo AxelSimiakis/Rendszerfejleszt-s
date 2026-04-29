@@ -47,15 +47,10 @@ class MovieService:
             movie = db.session.get(Movie, movie_id)
             if not movie:
                 return False, "Movie not found"
-            
-            #ellenőrzés, hogy vannak-e hozzá kapcsolódó vetítések
-            if movie.screenings:
-                return False, f"Movie cannot be deleted because {len(movie.screenings)} screening(s) are associated with it."
 
             db.session.delete(movie)
             db.session.commit()
             return True, "Movie deleted successfully"
-        
         except Exception as ex:
             print(f"Delete Error: {ex}")
             db.session.rollback()

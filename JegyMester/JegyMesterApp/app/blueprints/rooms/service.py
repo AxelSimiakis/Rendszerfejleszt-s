@@ -30,13 +30,6 @@ class RoomService:
             room = db.session.get(Room, room_id)
             if not room:
                 return False, "Terem nem talalhato"
-            
-            if room.seats:
-                return False, f"Terem nem torolheto, mert {len(room.seats)} szek van hozzarendelve"
-
-            if room.screenings:
-                return False, f"Terem nem torolheto, mert {len(room.screenings)} vetites van beutemezve"
-            
             db.session.delete(room)
             db.session.commit()
             return True, "Terem sikeresen torolve"
