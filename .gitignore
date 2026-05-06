@@ -47,6 +47,9 @@ instance/
 .DS_Store
 Thumbs.db
 
+# Node
+node_modules/
+
 # Database
 *.db
 *.sqlite
@@ -59,3 +62,4 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+.cache/
